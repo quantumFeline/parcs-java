@@ -36,8 +36,8 @@ public class Cipher {
             channel newChannel = newPoint.createChannel();
             System.out.println("Channel created");
 
-            newChannel.write(worker_data);
             newPoint.execute("StringConverter");
+            newChannel.write(worker_data);
             System.out.println("Execution has started. Waiting for result...");
 
             channels.add(newChannel);

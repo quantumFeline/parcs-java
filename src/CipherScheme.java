@@ -23,8 +23,11 @@ public class CipherScheme implements Serializable {
     }
 
     public Character convertLetter(Character c) {
-        if (scheme.containsKey(Character.toLowerCase(c))) {
-            return Character.isLowerCase(c) ? scheme.get(c) : Character.toUpperCase(scheme.get(c));
+	char cNormalized = Character.toLowerCase(c);
+        if (scheme.containsKey(cNormalized)) {
+            return Character.isLowerCase(c) ?
+		    scheme.get(cNormalized) :
+		    Character.toUpperCase(scheme.get(cNormalized));
         } else return c;
     }
 
