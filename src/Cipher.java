@@ -19,7 +19,6 @@ public class Cipher {
     }
 
     public static void splitTask(AMInfo info, Data data) {
-        List<point> points = new ArrayList<>();
         List<channel> channels = new ArrayList<>();
         int message_len = data.message.length();
         int workers_n = data.workers_n;
@@ -36,16 +35,13 @@ public class Cipher {
 
             point newPoint = info.createPoint();
             channel newChannel = newPoint.createChannel();
-
-            channels.add(newChannel);
-            points.add(newPoint);
-
             System.out.println("Channel created");
 
-            newChannel.write(data);
+            newChannel.write(worker_data);
             newPoint.execute("StringConverter");
-
             System.out.println("Execution has started. Waiting for result...");
+
+            channels.add(newChannel);
         }
         System.out.println("All channels started. Time: " + (System.currentTimeMillis() - time) + "ms");
 
