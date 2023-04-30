@@ -1,7 +1,7 @@
 all: run
 
 clean:
-	rm -f out/Cipher.jar out/CipherScheme.jar out/StringConverter.jar
+	rm -f out/Cipher.jar out/StringConverter.jar
 
 out/Cipher.jar: out/parcs.jar src/Cipher.java src/CipherScheme.java src/Data.java
 	@javac -cp out/parcs.jar src/Cipher.java src/CipherScheme.java src/Data.java

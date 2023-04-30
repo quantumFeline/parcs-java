@@ -23,7 +23,6 @@ public class Cipher {
         int message_len = data.message.length();
         int workers_n = data.workers_n;
 
-
         long time = System.currentTimeMillis();
         for (int i = 0; i < workers_n; i++) {
             String chunk = i == workers_n - 1 ?
