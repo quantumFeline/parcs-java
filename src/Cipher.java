@@ -30,11 +30,11 @@ public class Cipher {
                     data.message.substring(i * (message_len/workers_n), (i+1) * (message_len/workers_n));
             Data worker_data = new Data(data.scheme, chunk, i);
 
-            System.out.println(i + " worker string: " + chunk);
+//          System.out.println(i + " worker string: " + chunk);
 
             point newPoint = info.createPoint();
             channel newChannel = newPoint.createChannel();
-            System.out.println("Channel created");
+//          System.out.println("Channel created");
 
             newPoint.execute("StringConverter");
             newChannel.write(worker_data);

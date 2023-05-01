@@ -17,10 +17,10 @@ public class StringConverter implements AM {
 
     private String process(CipherScheme scheme, String message) {
         this.setScheme(scheme);
-        System.out.println("[" + scheme.toString() + "] Schema set.");
-        System.out.println("[" + message + "] Message processed...");
+        //System.out.println("[" + scheme.toString() + "] Schema set.");
+        //System.out.println("[" + message + "] Message processed...");
         String result = convert(message);
-        System.out.println("[" + result + "] done.");
+        //System.out.println("[" + result + "] done.");
         return result;
     }
 
@@ -32,23 +32,23 @@ public class StringConverter implements AM {
     @Override
     public void run(AMInfo amInfo) {
 
-	System.out.println("Running worker...");
+//	System.out.println("Running worker...");
 
         Data data = (Data)amInfo.parent.readObject();
 
-	System.out.println("Read data: " + data);
+//	System.out.println("Read data: " + data);
 	
-	System.out.println("Read data: " + data.scheme);
-	System.out.println("Read data: " + data.message);
-	System.out.println("Read data: " + data.workers_n);
+//	System.out.println("Read data: " + data.scheme);
+//	System.out.println("Read data: " + data.message);
+//	System.out.println("Read data: " + data.workers_n);
 
         CipherScheme cipherScheme = data.scheme;
-        System.out.println("[" + cipherScheme.toString() + "] Schema set.");
+//      System.out.println("[" + cipherScheme.toString() + "] Schema set.");
         String message = data.message;
         String result = process(cipherScheme, message);
-	System.out.println("Writing result...");
+//	System.out.println("Writing result...");
 
         amInfo.parent.write(result);
-	System.out.println("over and out.");
+//	System.out.println("over and out.");
     }
 }
